@@ -1,0 +1,26 @@
+{
+    "name": "thor",
+    "version": "0.0.1",
+    "author": "Alexander Gugel <alexander.gugel@gmail.com>",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/blubbi2/Thor.git"
+    },
+    "dependencies": {
+        "express": "3.2.0",
+        "socket.io": "0.9.14",
+        "socket.io-client": "0.9.11"
+    },
+    "license": "MIT",
+    "keywords": [
+        "chat",
+        "multi",
+        "room",
+        "simple",
+        "realtime"
+    ],
+    "engines": {
+        "node": "0.10.4",
+        "npm": "1.2.18"
+    }
+}

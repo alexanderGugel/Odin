@@ -1,0 +1,112 @@
+/* http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Basic styles */
+html {
+    background: rgb(235,235,235);
+}
+body {
+    color: rgb(50,50,50);
+    font: 14px/1.5 'Open Sans', sans-serif;
+    font-weight: 300;
+}
+strong {
+    font-weight: 600;
+}
+
+/* Because a grid would be an overkill... */
+.left, .right {
+    display: inline;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+/* Clearfix hack (http://nicolasgallagher.com/micro-clearfix-hack/) */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
+
+/* Header */
+header {
+    padding: 10px;
+    background: rgb(50,50,50);
+    color: #fff;
+    height: 40px;
+}
+
+/* Room/ Name */
+header .room, header .name {
+    background: rgb(80,80,80);
+    -webkit-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+/* Animation for new chat messages */
+@keyframes highlight {
+    from {
+        background: #0099cc;
+    }
+    to {
+        background: #fff;
+    }
+}
+@-webkit-keyframes highlight {
+    from {
+        background: #0099cc;
+    }
+    to {
+        background: #fff;
+    }
+}
+
+/* Chat messages */
+.conversation div {
+    padding: 10px;
+    margin: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 1px 1px rgb(187,187,187);
+    -moz-box-shadow: 1px 1px 1px rgb(187,187,187);
+    box-shadow: 1px 1px 1px rgb(187,187,187);
+    background: #fff;
+    word-wrap: break-word;
+    animation: highlight 5s;
+    -webkit-animation: highlight 5s;
+}         
+
+/* Input (avoid Chrome's input-highlighting) */
+input {
+    outline: 0;
+}
+.chat input {
+    width: 100%;
+    display: block;
+    border: 0;
+    padding: 10px;
+    border-bottom: 1px solid rgb(187,187,187);
+    background: #fff;
+} 
+
+/* Color for error-messages */
+.error {
+    color: rgb(209, 159, 159);
+}
