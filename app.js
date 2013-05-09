@@ -7,8 +7,8 @@ var express = require('express'),
     io = require('socket.io').listen(server);
 
 io.configure(function () { 
-    io.set("transports", ["xhr-polling"]); 
-    io.set("polling duration", 10); 
+    io.set('transports', ['xhr-polling']); 
+    io.set('polling duration', 10); 
 });
 
 app.use(express.static(__dirname + '/static')); // serve static files
