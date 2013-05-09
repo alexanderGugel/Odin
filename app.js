@@ -11,7 +11,14 @@ io.configure(function () {
     io.set('polling duration', 10); 
 });
 
-app.use(express.static(__dirname + '/static')); // serve static files
+// https://github.com/LearnBoost/Socket.IO/wiki/Configuring-Socket.IO
+io.enable('browser client minification');  // send minified client
+io.enable('browser client etag');          // apply etag caching logic based on version number
+io.enable('browser client gzip');          // gzip the file
+
+app.use(express.compress()); // compress files using gzp
+
+app.use(express.static(__dirname + '/static', { maxAge: 31557600000 })); // serve static files, enable caching
 
 server.listen(process.env.VCAP_APP_PORT || 3000);
 

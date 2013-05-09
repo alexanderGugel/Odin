@@ -47,6 +47,7 @@ section.about {
     padding: 10px;
     margin: 10px;
     background: rgb(235,235,235);
+    display: none;
 }
 
 /* Header */

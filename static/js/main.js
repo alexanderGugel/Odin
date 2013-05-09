@@ -1,5 +1,4 @@
 /* About-animation */
-$('section.about').hide();
 $('header .about').click(function () {
     'use strict';    
     $('section.about').slideToggle(100);
