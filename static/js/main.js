@@ -73,9 +73,6 @@ socket.on('reconnect_failed', function () {
     $('.conversation').prepend('<div class="reconnectFailed error">Reconnect failed :(</div>');
 });
 
-
-
-
 $('.chat form').submit(function () {
     'use strict';
     var message = $('.chat input').val(),
