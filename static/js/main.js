@@ -34,7 +34,6 @@ socket.on('chat', function (data) {
 
 socket.on('you', function (data) {
     'use strict';
-    console.log(data); // TODO
     $('header .name').html(data.name);
     $('header .room').html(data.room);
 });

@@ -13,7 +13,7 @@ io.configure(function () {
 
 app.use(express.static(__dirname + '/static')); // serve static files
 
-server.listen(3000);
+server.listen(process.env.VCAP_APP_PORT || 3000);
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
