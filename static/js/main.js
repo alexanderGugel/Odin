@@ -65,7 +65,7 @@ socket.on('connect_failed', function () {
 
 socket.on('error', function (reason) { // includes custom errors
     'use strict';
-    $('.conversation').prepend('<div class="error"><strong>An error occurred: <strong>' + reason + '</div>');
+    $('.conversation').prepend('<div class="error"><strong>An error occurred: </strong>' + reason + '</div>');
 });
 
 socket.on('reconnect_failed', function () {
