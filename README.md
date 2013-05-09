@@ -3,6 +3,11 @@ Thor
 
 > Thor is a foolproof multi-room chat application written in Node.js.
 
+Demo
+----
+
+http://thor.hp.af.cm/
+
 Getting started
 ---------------
 

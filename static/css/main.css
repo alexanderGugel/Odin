@@ -42,6 +42,13 @@ strong {
     *zoom: 1;
 }
 
+/* About */
+section.about {
+    padding: 10px;
+    margin: 10px;
+    background: rgb(235,235,235);
+}
+
 /* Header */
 header {
     padding: 10px;
@@ -50,13 +57,18 @@ header {
     height: 40px;
 }
 
-/* Room/ Name */
-header .room, header .name {
+/* Room/ Name/ About */
+header .room, header .name, header .about {
     background: rgb(80,80,80);
     -webkit-border-radius: 3px;
     -webkit-border-radius: 3px;
     border-radius: 3px;
     padding: 5px;
+}
+
+header .about {
+    background: rgb(130,130,130);
+    cursor: pointer;
 }
 
 /* Animation for new chat messages */

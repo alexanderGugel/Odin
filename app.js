@@ -6,6 +6,11 @@ var express = require('express'),
     server = http.createServer(app),
     io = require('socket.io').listen(server);
 
+io.configure(function () { 
+    io.set("transports", ["xhr-polling"]); 
+    io.set("polling duration", 10); 
+});
+
 app.use(express.static(__dirname + '/static')); // serve static files
 
 server.listen(3000);
