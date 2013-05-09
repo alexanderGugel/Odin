@@ -82,7 +82,7 @@ $('.chat form').submit(function () {
         commands = message.split(' ');
     
     if (message !== '') {
-        switch (commands[0]) {
+        switch (commands[0].toLowerCase()) {
         case 'room':
             socket.emit('room', { room: commands[1] });
             break;

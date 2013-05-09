@@ -44,11 +44,11 @@ function alphanumeric(string) { // http://stackoverflow.com/questions/388996/reg
 function changeRoom(io, socket, room) {
     'use strict';
     if (blank(room)) {
-        socket.emit('error', { reason: 'No room given.' });
+        socket.emit('error', 'No room given.');
         return;
     }
     if (!alphanumeric(room)) {
-        socket.emit('error', { reason: 'Room names need to be alphanumeric.' });
+        socket.emit('error', 'Room names need to be alphanumeric.');
         return;
     }
     if (socket.room !== undefined) {
@@ -57,7 +57,7 @@ function changeRoom(io, socket, room) {
     socket.room = room;
     socket.join(room);
     io.sockets.in(room).emit('room', { name: socket.name, room: socket.room });
-    socket.emit('you', { name: socket.name, room: room }); // tel user about his identity
+    socket.emit('you', { name: socket.name, room: room }); // tell user about his identity
 }
 
 function init(io, socket, names) {
@@ -70,7 +70,7 @@ function init(io, socket, names) {
 function chat(io, socket, message) {
     'use strict';
     if (blank(message)) {
-        socket.emit('error', { reason: 'No message given.' });
+        socket.emit('error', 'No message given.');
         return;
     }
     io.sockets.in(socket.room).emit('chat', { name: socket.name, message: escapeHTML(message) });
@@ -79,15 +79,15 @@ function chat(io, socket, message) {
 function changeName(io, socket, names, name) {
     'use strict';
     if (blank(name)) {
-        socket.emit('error', { reason: 'No name given.' });
+        socket.emit('error', 'No name given.');
         return;
     }
     if (!alphanumeric(name)) {
-        socket.emit('error', { reason: 'Names need to be alphanumeric.' });
+        socket.emit('error', 'Names need to be alphanumeric.');
         return;
     }
     if (names[name] !== undefined) {
-        socket.emit('error', { reason: 'This username is already taken. Try another one.' });
+        socket.emit('error', 'This username is already taken. Try another one.');
         return;
     }
     var previous = socket.name;
