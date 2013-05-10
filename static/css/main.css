@@ -97,9 +97,9 @@ header .about {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    -webkit-box-shadow: 1px 1px 1px rgb(187,187,187);
-    -moz-box-shadow: 1px 1px 1px rgb(187,187,187);
-    box-shadow: 1px 1px 1px rgb(187,187,187);
+    -webkit-box-shadow: 0 1px 2px rgb(187,187,187);
+    -moz-box-shadow: 0 1px 2px rgb(187,187,187);
+    box-shadow: 0 1px 2px rgb(187,187,187);
     background: #fff;
     word-wrap: break-word;
     animation: highlight 5s;
