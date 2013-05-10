@@ -75,6 +75,23 @@ function chat(io, socket, message) {
     }
     io.sockets.in(socket.room).emit('chat', { name: socket.name, message: escapeHTML(message) });
 }
+
+function whisper(io, socket, message, to, names) {
+    if (blank(message)) {
+        socket.emit('error', 'No message given.');
+        return;
+    }
+    if (blank(to)) {
+        socket.emit('error', 'No recipient given.');
+        return;
+    }
+    if (blank(names[to]) === undefined) {
+        socket.emit('error', 'Unknown recipient.');
+        return;
+    }
+    names[to].emit('whisper', { name: socket.name, message: escapeHTML(message) });    
+    socket.emit('whisper', { name: socket.name, message: escapeHTML(message) });    
+}
     
 function changeName(io, socket, names, name) {
     'use strict';
@@ -119,6 +136,10 @@ io.sockets.on('connection', function (socket) {
   
     socket.on('chat', function (data) {
         chat(io, socket, data.message);
+    });
+
+    socket.on('whisper', function (data) {    
+        whisper(io, socket, data.message, data.to, names);
     });
   
     socket.on('name', function (data) {

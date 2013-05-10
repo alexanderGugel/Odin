@@ -26,6 +26,11 @@ socket.on('chat', function (data) {
     $('.conversation').prepend('<div class="chat"><strong>' + data.name + '</strong><br>' + data.message + '</div>');
 });
 
+socket.on('whisper', function (data) {
+    'use strict';
+    $('.conversation').prepend('<div class="whisper"><strong>' + data.name + ' whispered:</strong><br>' + data.message + '</div>');
+});
+
 socket.on('you', function (data) {
     'use strict';
     $('header .name').html(data.name);
@@ -85,6 +90,9 @@ $('.chat form').submit(function () {
             break;
         case 'name':
             socket.emit('name', { name: commands[1] });
+            break;
+        case 'whisper':
+            socket.emit('whisper', { to: commands[1], message: commands.slice(2).join(' ') });
             break;
         default:
             socket.emit('chat', { message: message });

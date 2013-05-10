@@ -27,7 +27,7 @@ Run it:
 node app
 ```
 
-Point your browser to http://localhost:3000 and try some commands (room test, name alexander, ...).
+Point your browser to http://localhost:3000 and try some commands (room test, name alexander, whisper alex secret message...).
 
 License
 -------
