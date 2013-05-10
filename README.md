@@ -6,7 +6,8 @@ Thor
 Demo
 ----
 
-http://thor.hp.af.cm/
+http://thor.ap01.aws.af.cm/
+
 
 Getting started
 ---------------
