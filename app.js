@@ -18,7 +18,7 @@ io.enable('browser client gzip');          // gzip the file
 
 app.use(express.compress()); // compress files using gzip
 
-app.use(express.static(__dirname + '/static', { maxAge: 31557600000 })); // serve static files, enable caching
+app.use(express.static(__dirname + '/static')); // serve static files
 
 server.listen(process.env.VCAP_APP_PORT || 3000);
 
