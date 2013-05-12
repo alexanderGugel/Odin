@@ -60,13 +60,6 @@ function changeRoom(io, socket, room) {
     socket.emit('you', { name: socket.name, room: room }); // tell user about his identity
 }
 
-function init(io, socket, names) {
-    'use strict';
-    socket.name = socket.id;
-    names[socket.name] = socket;
-    changeRoom(io, socket, 'main');
-}
-
 function chat(io, socket, message) {
     'use strict';
     if (blank(message)) {
@@ -115,11 +108,6 @@ function changeName(io, socket, names, name) {
     socket.emit('you', { name: name, room: socket.room });
 }
 
-function quit(io, socket, names) {
-    'use strict';
-    io.sockets.in(socket.room).emit('quit', { name: socket.name });
-    names[socket.name] = undefined; // delete name  
-}
 
 //----------------------------------------------------------------------------------------
 
@@ -127,8 +115,9 @@ var names = {};
 
 io.sockets.on('connection', function (socket) {
     'use strict';
-    console.log(socket);
-    init(io, socket, names);
+    socket.name = socket.id;
+    names[socket.name] = socket;
+    changeRoom(io, socket, 'main');
     
     socket.on('room', function (data) {
         changeRoom(io, socket, data.room);
@@ -147,6 +136,7 @@ io.sockets.on('connection', function (socket) {
     });
   
     socket.on('disconnect', function () {
-        quit(io, socket, names);
+        io.sockets.in(socket.room).emit('quit', { name: socket.name }); // inform channel
+        names[socket.name] = undefined; // delete name  
     });
 });
