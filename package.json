@@ -8,8 +8,7 @@
     },
     "dependencies": {
         "express": "3.2.0",
-        "socket.io": "0.9.14",
-        "socket.io-client": "0.9.11"
+        "socket.io": "0.9.14"
     },
     "license": "MIT",
     "keywords": [
