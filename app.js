@@ -1,14 +1,12 @@
-//-------------------------------------------------------------------------------------------------------------------------------
-
 var express = require('express'),
     app = express(),
     http = require('http'),
     server = http.createServer(app),
     io = require('socket.io').listen(server);
 
-io.configure(function () { 
-    io.set('transports', ['xhr-polling']); 
-    io.set('polling duration', 10); 
+io.configure(function () {
+    io.set('transports', ['xhr-polling']);
+    io.set('polling duration', 10);
 });
 
 // https://github.com/LearnBoost/Socket.IO/wiki/Configuring-Socket.IO
@@ -25,24 +23,20 @@ server.listen(process.env.VCAP_APP_PORT || 3000);
 //-------------------------------------------------------------------------------------------------------------------------------
 
 function escapeHTML(string) {
-    'use strict';
     return string.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
 function blank(string) { // http://stackoverflow.com/questions/154059/how-do-you-check-for-an-empty-string-in-javascript
-    'use strict';
     return (!string || /^\s*$/.test(string));
 }
 
 function alphanumeric(string) { // http://stackoverflow.com/questions/388996/regex-for-javascript-to-allow-only-alphanumeric
-    'use strict';
     return (/^[a-z0-9]+$/i).test(string);
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
 function changeRoom(io, socket, room) {
-    'use strict';
     if (blank(room)) {
         socket.emit('error', 'No room given.');
         return;
@@ -61,7 +55,6 @@ function changeRoom(io, socket, room) {
 }
 
 function chat(io, socket, message) {
-    'use strict';
     if (blank(message)) {
         socket.emit('error', 'No message given.');
         return;
@@ -87,7 +80,6 @@ function whisper(io, socket, message, to, names) {
 }
     
 function changeName(io, socket, names, name) {
-    'use strict';
     if (blank(name)) {
         socket.emit('error', 'No name given.');
         return;
@@ -108,13 +100,11 @@ function changeName(io, socket, names, name) {
     socket.emit('you', { name: name, room: socket.room });
 }
 
-
 //----------------------------------------------------------------------------------------
 
 var names = {};
 
 io.sockets.on('connection', function (socket) {
-    'use strict';
     socket.name = socket.id;
     names[socket.name] = socket;
     changeRoom(io, socket, 'main');
