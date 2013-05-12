@@ -105,9 +105,9 @@ function changeName(io, socket, names, name) {
 var names = {};
 
 io.sockets.on('connection', function (socket) {
-    socket.name = socket.id;
+    socket.name = socket.id; // deafault name is the unique socket.id
     names[socket.name] = socket;
-    changeRoom(io, socket, 'main');
+    changeRoom(io, socket, 'main'); // enter default room (main)
     
     socket.on('room', function (data) {
         changeRoom(io, socket, data.room);
