@@ -6,7 +6,7 @@ Odin
 Demo
 ----
 
-Comming soon.
+http://odin.tk/
 
 Getting started
 ---------------
