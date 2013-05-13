@@ -6,7 +6,7 @@ Odin
 Demo
 ----
 
-Comng soon.
+Comming soon.
 
 Getting started
 ---------------
