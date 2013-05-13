@@ -18,7 +18,7 @@ app.use(express.compress()); // compress files using gzip
 
 app.use(express.static(__dirname + '/static')); // serve static files
 
-server.listen(process.env.VCAP_APP_PORT || 3000);
+server.listen(process.env.PORT || 5000);
 
 //-------------------------------------------------------------------------------------------------------------------------------
 
