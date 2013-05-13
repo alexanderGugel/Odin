@@ -1,10 +1,10 @@
 {
-    "name": "Thor",
+    "name": "Odin",
     "version": "0.0.1",
     "author": "Alexander Gugel <alexander.gugel@gmail.com>",
     "repository": {
         "type": "git",
-        "url": "https://github.com/blubbi2/Thor.git"
+        "url": "https://github.com/blubbi2/Odin.git"
     },
     "dependencies": {
         "express": "3.2.0",

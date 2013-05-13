@@ -1,20 +1,19 @@
-Thor
+Odin
 ====
 
-> Thor is a foolproof multi-room chat application written in Node.js.
+> Odin is a foolproof multi-room chat application written in Node.js.
 
 Demo
 ----
 
-http://thor.ap01.aws.af.cm/
-
+Comng soon.
 
 Getting started
 ---------------
 
 Clone the repository:
 ```
-git clone git://github.com/blubbi2/Thor.git
+git clone git://github.com/blubbi2/Odin.git
 ```
 
 Install the dependencies:
