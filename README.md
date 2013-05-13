@@ -6,7 +6,7 @@ Odin
 Demo
 ----
 
-http://odin.tk/
+http://www.odin.tk/
 
 Getting started
 ---------------
