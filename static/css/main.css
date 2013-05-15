@@ -1,129 +1,151 @@
 /* http://paulirish.com/2012/box-sizing-border-box-ftw/ */
+
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 /* Basic styles */
+
 html {
-    background: rgb(235,235,235);
+  background: #ebebeb;
 }
+
 body {
-    color: rgb(50,50,50);
-    font: 14px/1.5 'Open Sans', sans-serif;
-    font-weight: 300;
+  font: 14px/1.5 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: #323232;
 }
+
 strong {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 /* Because a grid would be an overkill... */
-.left, .right {
-    display: inline;
-}
-.left {
-    float: left;
-}
+
+.left,
 .right {
-    float: right;
+  display: inline;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
 }
 
 /* Clearfix hack (http://nicolasgallagher.com/micro-clearfix-hack/) */
+
 .cf:before,
 .cf:after {
-    content: " ";
-    display: table;
+  display: table;
+  content: " ";
 }
+
 .cf:after {
-    clear: both;
+  clear: both;
 }
+
 .cf {
-    *zoom: 1;
+  *zoom: 1;
 }
 
 /* About */
+
 section.about {
-    padding: 10px;
-    margin: 10px;
-    background: rgb(235,235,235);
-    display: none;
+  display: none;
+  padding: 10px;
+  margin: 10px;
+  background: #ebebeb;
 }
 
 /* Header */
+
 header {
-    padding: 10px;
-    background: rgb(50,50,50);
-    color: #fff;
-    height: 40px;
+  height: 40px;
+  padding: 10px;
+  color: #fff;
+  background: #323232;
 }
 
 /* Room/ Name/ About */
-header .room, header .name, header .about {
-    background: rgb(80,80,80);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    padding: 5px;
+
+header .room,
+header .name,
+header .about {
+  padding: 5px;
+  background: #505050;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
 }
 
 header .about {
-    background: rgb(130,130,130);
-    cursor: pointer;
+  cursor: pointer;
+  background: #828282;
 }
 
 /* Animation for new chat messages */
+
 @keyframes highlight {
-    from {
-        background: #0099cc;
-    }
-    to {
-        background: #fff;
-    }
+  from {
+    background: #0099cc;
+  }
+  to {
+    background: #fff;
+  }
 }
+
 @-webkit-keyframes highlight {
-    from {
-        background: #0099cc;
-    }
-    to {
-        background: #fff;
-    }
+  from {
+    background: #0099cc;
+  }
+  to {
+    background: #fff;
+  }
 }
 
 /* Chat messages */
+
 .conversation div {
-    padding: 10px;
-    margin: 10px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgb(187,187,187);
-    -moz-box-shadow: 0 1px 2px rgb(187,187,187);
-    box-shadow: 0 1px 2px rgb(187,187,187);
-    background: #fff;
-    word-wrap: break-word;
-    animation: highlight 5s;
-    -webkit-animation: highlight 5s;
-}         
+  padding: 10px;
+  margin: 10px;
+  word-wrap: break-word;
+  background: #fff;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  -webkit-box-shadow: 0 1px 2px #bbbbbb;
+     -moz-box-shadow: 0 1px 2px #bbbbbb;
+          box-shadow: 0 1px 2px #bbbbbb;
+  -webkit-animation: highlight 5s;
+          animation: highlight 5s;
+}
 
 /* Input (avoid Chrome's input-highlighting) */
+
 input {
-    outline: 0;
-    -webkit-appearance: none; /* remove shadow on iOS-devices */
-    -webkit-border-radius: 0; /* remove rounded corners */
-    -moz-border-radius: 0;
-    border-radius: 0;
+  -webkit-border-radius: 0;
+     -moz-border-radius: 0;
+          border-radius: 0;
+  outline: 0;
+  -webkit-appearance: none;
 }
+
 .chat input {
-    width: 100%;
-    display: block;
-    border: 0;
-    padding: 10px;
-    border-bottom: 1px solid rgb(187,187,187);
-    background: #fff;
-} 
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  border: 0;
+  border-bottom: 1px solid #bbbbbb;
+}
 
 /* Color for error-messages */
+
 .error {
-    color: rgb(242, 61, 61);
+  color: #f23d3d;
 }
