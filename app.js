@@ -63,15 +63,15 @@ function chat(io, socket, message) {
 }
 
 function whisper(io, socket, message, to, names) {
-    if (blank(message)) {
-        socket.emit('error', 'No message given.');
-        return;
-    }
     if (blank(to)) {
         socket.emit('error', 'No recipient given.');
         return;
     }
-    if (blank(names[to]) === undefined) {
+    if (blank(message)) {
+        socket.emit('error', 'No message given.');
+        return;
+    }
+    if (names[to] === undefined) {
         socket.emit('error', 'Unknown recipient.');
         return;
     }
