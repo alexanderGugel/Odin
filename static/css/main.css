@@ -109,6 +109,10 @@ header .about {
 /* Input (avoid Chrome's input-highlighting) */
 input {
     outline: 0;
+    -webkit-appearance: none; /* remove shadow on iOS-devices */
+    -webkit-border-radius: 0; /* remove rounded corners */
+    -moz-border-radius: 0;
+    border-radius: 0;
 }
 .chat input {
     width: 100%;
