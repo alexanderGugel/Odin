@@ -109,20 +109,22 @@ io.sockets.on('connection', function (socket) {
     names[socket.name] = socket;
     changeRoom(io, socket, 'main'); // enter default room (main)
     
-    socket.on('room', function (data) {
-        changeRoom(io, socket, data.room);
-    });
-  
-    socket.on('chat', function (data) {
-        chat(io, socket, data.message);
-    });
-
-    socket.on('whisper', function (data) {    
-        whisper(io, socket, data.message, data.to, names);
-    });
-  
-    socket.on('name', function (data) {
-        changeName(io, socket, names, data.name);
+    // previously, we used an extra event for each command (socket.on('chat', func...)), but this method is much easier to maintain, because adding new commands is much easier now (no modification in main.js needed)
+    socket.on('message', function (message) {
+        var commands = message.split(' ');
+        switch (commands[0].toLowerCase()) {
+            case 'room':
+                changeRoom(io, socket, commands[1]); 
+                break;
+            case 'name':
+                changeName(io, socket, names, commands[1]);
+                break;
+            case 'whisper':
+                whisper(io, socket, commands.slice(2).join(' '), commands[1], names);
+                break;
+            default:
+                chat(io, socket, message);
+        }
     });
   
     socket.on('disconnect', function () {

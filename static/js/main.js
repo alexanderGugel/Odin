@@ -64,24 +64,10 @@ socket.on('reconnect_failed', function () {
 });
 
 $('.chat form').submit(function () {
-    var message = $('.chat input').val(),
-        commands = message.split(' ');
+    var message = $('.chat input').val();
     
     if (message !== '') {
-        switch (commands[0].toLowerCase()) {
-        case 'room':
-            socket.emit('room', { room: commands[1] });
-            break;
-        case 'name':
-            socket.emit('name', { name: commands[1] });
-            break;
-        case 'whisper':
-            socket.emit('whisper', { to: commands[1], message: commands.slice(2).join(' ') });
-            break;
-        default:
-            socket.emit('chat', { message: message });
-            break;
-        }
+        socket.emit('message', message);
         $('.chat input').val('');
     }
     return false;
