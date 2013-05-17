@@ -18,7 +18,7 @@ body {
   color: #323232;
 }
 
-strong {
+h2, strong {
   font-weight: 600;
 }
 
