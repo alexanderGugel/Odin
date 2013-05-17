@@ -1,3 +1,9 @@
+// http://stackoverflow.com/questions/37684/how-to-replace-plain-urls-with-links
+function linkify(text) {
+    var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/ig;
+    return text.replace(exp,"<a target='_blank' href='$1'>$1</a>"); 
+}
+
 // About-animation
 $('header .about').click(function () {
     $('section.about').slideToggle(100);
@@ -18,11 +24,11 @@ socket.on('quit', function (data) {
 });
 
 socket.on('chat', function (data) {
-    $('.conversation').prepend('<div class="chat"><strong>' + data.name + '</strong><br>' + data.message + '</div>');
+    $('.conversation').prepend('<div class="chat"><strong>' + data.name + '</strong><br>' + linkify(data.message) + '</div>');
 });
 
 socket.on('whisper', function (data) {
-    $('.conversation').prepend('<div class="whisper"><strong>' + data.name + ' whispered:</strong><br>' + data.message + '</div>');
+    $('.conversation').prepend('<div class="whisper"><strong>' + data.name + ' whispered:</strong><br>' + linkify(data.message) + '</div>');
 });
 
 socket.on('you', function (data) {
