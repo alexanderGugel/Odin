@@ -30,37 +30,8 @@ socket.on('you', function (data) {
     $('header .room').html(data.room);
 });
 
-// Default events
-socket.on('disconnect', function () {
-    $('.conversation').prepend('<div class="disconnect error">Disconnected :(</div>');
-});
-
-socket.on('connect', function () {
-    $('.conversation').prepend('<div class="connect">Connected :)</div>');
-});
-
-socket.on('reconnect', function () {
-    $('.conversation').prepend('<div class="reconnect">Reconnected :)</div>');
-});
-
-socket.on('connecting', function () {
-    $('.conversation').prepend('<div class="connecting">Connecting...</div>');
-});
-
-socket.on('reconnecting', function () {
-    $('.conversation').prepend('<div class="reconnecting">Reconnecting...</div>');
-});
-
-socket.on('connect_failed', function () {
-    $('.conversation').prepend('<div class="connectFailed error">Connect failed :(</div>');
-});
-
 socket.on('error', function (reason) { // includes custom errors
     $('.conversation').prepend('<div class="error"><strong>An error occurred: </strong>' + reason + '</div>');
-});
-
-socket.on('reconnect_failed', function () {
-    $('.conversation').prepend('<div class="reconnectFailed error">Reconnect failed :(</div>');
 });
 
 $('.chat form').submit(function () {
